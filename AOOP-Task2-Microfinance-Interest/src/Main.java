@@ -2,6 +2,8 @@ public class Main {
     public static void main(String[] args) {
         double annualInterestRate = 7.5; // 7.5% annual savings rate
 
+        System.out.println("  MICROFINANCE BANK - SAVINGS INTEREST & CONVERSION");
+        
         // I added this to accept customer deposit information (whole numbers widened safely to double in SavingsAccount)
         SavingsAccount acc1 = new SavingsAccount("Amina Nakato", 150000);
         SavingsAccount acc2 = new SavingsAccount("Samuel Mukasa", 245750);
