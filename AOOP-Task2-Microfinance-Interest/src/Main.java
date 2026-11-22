@@ -1,4 +1,11 @@
+/**
+ * I added this as the entry point for the Microfinance Bank Savings Interest & Conversion application.
+ * Demonstrates safe automatic widening conversions, decimal interest calculations,
+ * manual narrowing/rounding conversions, and management summary reporting.
+ */
+
 public class Main {
+    //This method runs customer savings interest calculations, prints per-account conversion
     public static void main(String[] args) {
         double annualInterestRate = 7.5; // 7.5% annual savings rate
 
@@ -32,7 +39,7 @@ public class Main {
         System.out.println("  Rounded Interest for Accounting: " + account.getRoundedInterestWhole());
         System.out.println();
     }
-
+    // Generates a management summary report with rounded whole figures, total deposits, net rounding variance, and conversion accuracy notes.
     private static void printManagementSummary(SavingsAccount[] accounts) {
         long totalDeposits = 0;
         double totalExactInterest = 0.0;

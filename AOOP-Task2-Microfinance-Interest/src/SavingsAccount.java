@@ -1,3 +1,11 @@
+/**
+ * I made this so that it models a customer savings account for a microfinance bank.
+ * Accepts whole-number deposits, widens safely to {@code double}
+ * for decimal interest calculations, and provides manual narrowing/rounding
+ * methods that produce whole figures for accounting reports while illustrating
+ * fractional precision trade-offs.
+ */
+
 public class SavingsAccount {
     private String customerName;
     private int depositAmount;   // This is the whole number entered by customer
@@ -33,19 +41,19 @@ public class SavingsAccount {
     public long getRoundedTotalBalance() {
         return (long) Math.round(this.balance + this.interestEarned);
     }
-
+//Returns the customer's name.
     public String getCustomerName() {
         return customerName;
     }
-
+//Returns the original whole-number deposit amount
     public int getDepositAmount() {
         return depositAmount;
     }
-
+//Returns the current balance widened to {@code double}.
     public double getBalance() {
         return balance;
     }
-
+//Returns the exact decimal interest calculated for this account.
     public double getInterestEarned() {
         return interestEarned;
     }
