@@ -1,15 +1,15 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        double annualInterestRate = 7.5; // 7.5% annual savings rate
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // I added this to accept customer deposit information (whole numbers widened safely to double in SavingsAccount)
+        SavingsAccount acc1 = new SavingsAccount("Amina Nakato", 150000);
+        SavingsAccount acc2 = new SavingsAccount("Samuel Mukasa", 245750);
+        SavingsAccount acc3 = new SavingsAccount("Grace Nabirye", 89400);
+
+        // This block of code exists to calculate exact decimal interest for each account
+        acc1.calculateInterest(annualInterestRate);
+        acc2.calculateInterest(annualInterestRate);
+        acc3.calculateInterest(annualInterestRate);
     }
 }
