@@ -18,4 +18,35 @@ public class SavingsAccount {
         this.interestEarned = this.balance * rateDecimal;
         return this.interestEarned;
     }
+
+    // I added this manual narrowing cast (from double -> long): truncates decimals completely (can lose fractional accuracy)
+    public long getTruncatedInterestWhole() {
+        return (long) this.interestEarned;
+    }
+
+    // I rounded whole figure for management accounting using Math.round + manual cast to long
+    public long getRoundedInterestWhole() {
+        return (long) Math.round(this.interestEarned);
+    }
+
+    // This is the total balance including exact interest, then rounded for accounting display
+    public long getRoundedTotalBalance() {
+        return (long) Math.round(this.balance + this.interestEarned);
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public int getDepositAmount() {
+        return depositAmount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public double getInterestEarned() {
+        return interestEarned;
+    }
 }
