@@ -16,6 +16,10 @@ public class Main {
         printAccountDetails(acc1, annualInterestRate);
         printAccountDetails(acc2, annualInterestRate);
         printAccountDetails(acc3, annualInterestRate);
+
+        // I added this to generate summary report for management
+        SavingsAccount[] accounts = {acc1, acc2, acc3};
+        printManagementSummary(accounts);
     }
 
     private static void printAccountDetails(SavingsAccount account, double rate) {
@@ -25,5 +29,27 @@ public class Main {
         System.out.println("  Truncated Interest Cast ((long)): " + account.getTruncatedInterestWhole());
         System.out.println("  Rounded Interest for Accounting: " + account.getRoundedInterestWhole());
         System.out.println();
+    }
+
+    private static void printManagementSummary(SavingsAccount[] accounts) {
+        long totalDeposits = 0;
+        double totalExactInterest = 0.0;
+        long totalRoundedInterest = 0;
+
+        for (SavingsAccount account : accounts) {
+            totalDeposits += account.getDepositAmount();
+            totalExactInterest += account.getInterestEarned();
+            totalRoundedInterest += account.getRoundedInterestWhole();
+        }
+
+        double roundingDifference = totalRoundedInterest - totalExactInterest;
+
+        System.out.println("MANAGEMENT SUMMARY REPORT (ROUNDED ACCOUNTING FIGURES):");
+        System.out.println("Total Customer Deposits: " + totalDeposits);
+        System.out.printf("Total Exact Interest (double): %.4f%n", totalExactInterest);
+        System.out.println("Total Rounded Interest for Management: " + totalRoundedInterest);
+        System.out.printf("Net Rounding Variance (Rounded - Exact): %+.4f%n", roundingDifference);
+        System.out.println("Accuracy Note: Automatic widening (int -> double) preserves value safely, "
+                + "while manual narrowing/rounding to whole numbers trades fractional precision for reporting clarity.");
     }
 }
